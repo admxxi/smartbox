@@ -1,0 +1,35 @@
+{{outlet}}
+
+{{#unless network}}
+  Error
+{{else}}
+  <!-- Start Header -->
+  <header class="header">
+    <h1 class="headline">Smartbox <small>Development test</small></h1>
+  </header>
+  <!-- End Header -->
+
+  <div class="row column text-center">
+    <h3>{{network.name}} Stations</h3>
+    <p>
+      {{network.location.city}} - {{network.location.country}}
+    </p>
+    <hr />
+  </div>
+
+  <div class="row small-up-1 medium-up-2 large-up-4">
+    {{#each network.stations as |station index|}}
+        <div class="column">
+          <div class="callout">
+            <h5>{{station.name}}</h5>
+            <p class="subheader">
+              {{station.free_bikes}} Free bikes
+            </p>
+            <p class="subheader">
+              {{station.empty_slots}} Slots Available
+            </p>
+          </div>
+        </div>
+    {{/each}}
+  </div>
+{{/unless}}
